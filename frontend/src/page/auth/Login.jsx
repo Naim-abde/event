@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const {login , } = useContext(AuthContext)
+  const {login  } = useContext(AuthContext)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
@@ -33,12 +33,13 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-xl shadow-md w-[400px]"
+        className="min-h-screen flex items-center justify-center bg-black px-4"
       >
-        <h1 className="text-2xl font-bold mb-5 text-center">
+        <div className="w-full max-w-md bg-zinc-950 border border-zinc-800 rounded-3xl p-8 shadow-2xl space-y-6">
+        <h1 className="text-3xl font-black text-white text-center mb-6">
           Login
         </h1>
 
@@ -47,7 +48,7 @@ export default function Login() {
           name="email"
           placeholder="Email"
           onChange={handleChange}
-          className="w-full border p-3 rounded mb-4"
+          className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 text-white outline-none focus:border-blue-600 transition"
         />
 
         <input
@@ -55,16 +56,16 @@ export default function Login() {
           name="password"
           placeholder="Password"
           onChange={handleChange}
-          className="w-full border p-3 rounded mb-4"
+          className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-5 py-4 text-white outline-none focus:border-blue-600 transition"
         />
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-3 rounded"
+          className="w-full bg-blue-600 hover:bg-blue-700 transition py-4 rounded-2xl font-bold text-white"
         >
           Login
         </button>
+        </div>
       </form>
-    </div>
   );
 }
